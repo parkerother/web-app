@@ -1,0 +1,52 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentBoat.id">
+        <h4>Boat Detail</h4>
+        <div>
+            <label><strong>Name:</strong></label> {{ currentBoat.name }}
+        </div>
+        <div>
+            <label><strong>Description:</strong></label>
+            {{ currentBoat.description }}
+        </div>
+
+        <a class="badge badge-warning" routerLink="/boats/{{ currentBoat.id }}">
+            Edit
+        </a>
+    </div>
+
+    <div *ngIf="!currentBoat">
+        <br />
+        <p>Please click on a boat...</p>
+    </div>
+</div>
+
+<ng-template #editable>
+    <div *ngIf="currentBoat.id" class="edit-form">
+        <h4>Boat</h4>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="currentBoat.name" name="Name" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="currentBoat.description"
+                    name="description" />
+            </div>
+        </form>
+
+        <button class="badge badge-danger mr-2" (click)="deleteBoat()">
+            Delete
+        </button>
+
+        <button type="submit" class="badge badge-success mb-2" (click)="updateBoat()">
+            Update
+        </button>
+        <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!currentBoat.id">
+        <br />
+        <p>Cannot access in this Boat ...</p>
+    </div>
+</ng-template>

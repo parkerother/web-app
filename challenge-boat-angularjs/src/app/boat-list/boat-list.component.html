@@ -1,0 +1,22 @@
+<div>
+    <div class="col-md-6">
+      <h4>Boat List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let boat of boats; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveBoat(boat, i)"
+        >
+          {{ boat.name }}
+        </li>
+      </ul>
+    </div>
+    <h4></h4>
+    <div class="col-md-6">
+      <app-boat-details
+        [viewMode]="true"
+        [currentBoat]="currentBoat"
+      ></app-boat-details>
+    </div>
+  </div>

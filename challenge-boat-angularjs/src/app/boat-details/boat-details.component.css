@@ -1,0 +1,12 @@
+.edit-form {
+    max-width: 400px;
+    margin: auto;
+  }
+
+  list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
